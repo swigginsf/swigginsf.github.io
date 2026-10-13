@@ -2,10 +2,270 @@
 <head> 
 <title> Samuel Wiggins. </title>
 <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gloock&family=Nunito+Sans&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/xav0wcz.css">
 </head>
+<style>
+	
+:root {
+    --forest: #318cd0;
+    --forest-deep: #1c5e93;
+    --ink: #15201B;
+    --paper: #F1F2EC;
+    --paper-dim: #E4E7DD;
+	--paper-blue: #a6e7ff;
+    --mustard: #4fdab5;
+    --rose: #C65C57;
+
+    --display: "linotype-sabon","Georgia", "Gloock", "Georgia", "Times New Roman", serif;
+    --body: "futura-pt", "Nunito Sans", "Futura", Arial, sans-serif;
+
+    /* type scale (~1.25 ratio) */
+    --step--1: 0.875rem;
+    --step-0: 1.0625rem;
+    --step-1: 1.33rem;
+    --step-2: clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem);
+    --step-3: clamp(2.2rem, 1.6rem + 2.6vw, 3.4rem);
+    --step-hero: clamp(3.2rem, 1.2rem + 7vw, 7.5rem);
+
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --section-space: clamp(4rem, 9vw, 8rem);
+    --header-h: 4.25rem;
+}
+body {
+    margin: 0;
+    background: var(--forest);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: var(--step-0);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+	/* ---------- nav ---------- */
+.site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--forest-deep);
+    color: var(--paper);
+}
+
+.nav {
+    display: flex; align-items: center; justify-content: space-between;
+    min-height: var(--header-h);
+}
+
+.nav__brand {
+	color: var(--paper);
+    font-family: var(--display);
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.nav__links {
+    display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2.25rem);
+    list-style: none; margin: 0; padding: 0;
+}
+
+.nav__links a { color: var(--paper); text-decoration: none; font-weight: 500; }
+.nav__links a:hover { color: var(--mustard); }
+
+.nav__cv {
+    background: var(--mustard);
+    color: var(--ink);
+    padding: 0.35rem 1.1rem;
+    border-radius: 999px;
+}
+.nav__links .nav__cv { color: var(--ink); background: var(--mustard);}
+.nav__links .nav__cv:hover { color: var(--ink); background: var(--paper); }
+
+.nav__toggle {
+    display: none;
+    width: 2.75rem; height: 2.75rem;
+    background: none; border: 0; color: inherit; cursor: pointer;
+    position: relative;
+}
+.nav__toggle-bar,
+.nav__toggle-bar::before,
+.nav__toggle-bar::after {
+    position: absolute; left: 50%; width: 1.5rem; height: 2px;
+    background: currentColor; transform: translateX(-50%);
+    transition: transform 0.2s;
+}
+.nav__toggle-bar { top: 50%; }
+.nav__toggle-bar::before, .nav__toggle-bar::after { content: ""; left: 0; transform: none; }
+.nav__toggle-bar::before { top: -7px; }
+.nav__toggle-bar::after { top: 7px; }
+
+.hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+}
+/* ---------- footer ---------- */
+.footer { background: var(--ink); color: var(--paper-dim); border-top: 1px solid rgba(241, 242, 236, 0.12); }
+.footer__inner {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-block: 1.25rem; font-size: var(--step--1);
+}
+.footer p { margin: 0; }
+
+
+.paper_dim {
+    background-color: var(--paper-dim);
+}
+.paper-blue {
+    background-color: var(--paper-blue);
+}
+
+.project-container {
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 24px;
+    margin: 40px auto;
+    width: 75%;
+    box-sizing: border-box;
+}
+
+.project-container-img {
+    height: 50%;
+}
+
+</style>
  <body>
-   
+   <header class="site-header">
+        <nav class="nav wrap" aria-label="Main">
+            <a class="nav__brand" href="#top">Samuel Wiggins</a>
+
+            <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navLinks">
+                <span class="visually-hidden">Menu</span>
+                <span class="nav__toggle-bar"></span>
+            </button>
+
+            <ul class="nav__links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#graphics">Graphics Lab</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <!-- TODO: drop your CV PDF into assets/ and keep this link -->
+                <li><a class="nav__cv" href="https://docs.google.com/document/d/1JCyWER7S86YOnOBwGrbWvWz5F3TG0Je0VitwMn7wBuc/edit?usp=sharing" target="_blank" rel="noopener">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="paper-dim">
+    <div class="hero__grid">
+    
+        <figure class="hero__portrait">
+                    <img src="aguconference.png"
+                        alt="Portrait of Samuel Wiggins" width="200" height="200" fetchpriority="high">
+    </figure>
+    <div>
+        <h1>About Us</h1>
+    <p style="color: #ffffff">Hi there! I'm a software developer passionate about utilizing computer graphics and virtual reality to create immersive experiences.</p>
+    <p>We are dedicated to providing quality content and services to our users.</p>
+    </div>
+
+    
+    <!---
+    
+    Work
+    
+    Achievements
+
+    Graphics
+
+    -->
+    
+    </div>
+    </section>
+
+
+    <!--- Work --->
+    <section class="paper-blue">
+        <h1>Work</h1>
+        <p>Here are some of the research projects and internships that I have worked on. </p>
+        <div class="project-container">
+            <img class="project-container-img" src="watercycle.png"></img>
+            <div>
+            <h2>Visualizing Stage's of the Earth’s Water Cycle Using Virtual Reality</h2>
+            <h3>CISESS Intern</h3>
+            <p>
+            The objective for this internship was to build an interactive
+            VR experience to educate the public about the water cycle.
+            As a result, we have a VR application with detailed visuals
+            for each process in the hydrological cycle. Furthermore,
+            there are slide decks and quizzes to reinforce knowledge
+            learned from this virtual experience. I also gained
+            experience working with the Android SDK and publishing an
+            application to the Meta Quest store.
+            </p>
+            </div>
+            <button>Meta Quest</button> <button>XR @ CISESS</button>
+        </div>
+        <div class="project-container">
+            <img class="project-container-img" src="perceptions.png"></img>
+            <div>
+            <h2>Perceptions of tracking and inference in VR</h2>
+            <h3>Research Assistant</h3>
+            <p>
+            Privacy within VR is a huge issue. Because of this, our study
+            focused on collecting data within VRChat, and then recording
+            the users perception of that data.
+            This project utilized all possible avenues of data collection
+            with the Meta Quest Pro and the Meta SDK. Opinions and
+            perceptions of the user reacting to their data, were also
+            recorded to get an overall consensus regarding data
+            collection in VR.
+            </p>
+            <button>Meta Quest</button> <button>XR @ CISESS</button>
+            </div>
+        </div>
+        
+    </section>
+
+    <!--- Achievements --->
+    <section class="paper-blue">
+        <h1>Achievements</h1>
+        <p>Here are some of the achievements and awards that I have received from various hackathons. </p>
+        <div class="project-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/eBeCEY2OcjE?si=qIZ3yvo8jMmywNly" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div>
+            <h2>Project Name</h2>
+            <h3>Award</h3>
+            <p>
+            Info
+            </p>
+            </div>
+            <button>Meta Quest</button> <button>XR @ CISESS</button>
+        </div>
+    </section>
+
+    <!--- Graphics Lab --->
+    <section class="paper-blue">
+        <h1>Graphics Lab</h1>
+        <p>Here are some of the computer graphics projects and renderings that I have worked on.</p>
+    </section>
+
+
+    <h1>Contact</h1>
+    <p>Email us at contact@example.com or call us at (123) 456-7890.</p>
+    </section>
+	
+
+    <img src="aguconference.png">
+	<footer class="footer">
+        <div class="wrap footer__inner">
+            <p>© 2026 Samuel Wiggins</p>
+            <a href="#top">Back to top</a>
+        </div>
+    </footer>
  </body>
 <script>
-		window.location.replace("https://swiggins.my.canva.site/");
+		//window.location.replace("https://swiggins.my.canva.site/");
 </script>
