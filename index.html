@@ -1,6 +1,6 @@
 <html>
 <head> 
-<title> Samuel Wiggins. </title>
+<title>Samuel Wiggins</title>
 <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +17,12 @@
     --ink: #15201B;
     --paper: #F1F2EC;
     --paper-dim: #E4E7DD;
+    --paper-white: #E4E7DD;
+    --paper-dark: #15201B;
 	--paper-blue: #a6e7ff;
     --mustard: #4fdab5;
     --rose: #C65C57;
+    --indigo: #0C0942;
 
     --display: "linotype-sabon","Georgia", "Gloock", "Georgia", "Times New Roman", serif;
     --body: "futura-pt", "Nunito Sans", "Futura", Arial, sans-serif;
@@ -35,6 +38,21 @@
     --gutter: clamp(1.25rem, 4vw, 3rem);
     --section-space: clamp(4rem, 9vw, 8rem);
     --header-h: 4.25rem;
+}
+h1 {
+    font-family: var(--display);
+}
+
+h2 {
+    font-family: var(--display);
+}
+
+h3 {
+    font-family: var(--display);
+}
+
+h4 {
+    font-family: var(--body);
 }
 body {
     margin: 0;
@@ -106,20 +124,58 @@ body {
     align-items: center;
 }
 /* ---------- footer ---------- */
-.footer { background: var(--ink); color: var(--paper-dim); border-top: 1px solid rgba(241, 242, 236, 0.12); }
+.footer { background: var(--indigo); color: var(--paper-dim); border-top: 1px solid rgba(241, 242, 236, 0.12); }
 .footer__inner {
     display: flex; justify-content: space-between; align-items: center;
     padding-block: 1.25rem; font-size: var(--step--1);
 }
 .footer p { margin: 0; }
 
-
+.paper_white {
+    background-color: var(--paper-white);
+}
 .paper_dim {
     background-color: var(--paper-dim);
 }
 .paper-blue {
     background-color: var(--paper-blue);
 }
+.paper-dark {
+    background-color: var(--paper-dark);
+    color: var(--paper);
+}
+.paper-forest {
+    background-color: var(--forest);
+}
+.paper-dark-forest{
+    background-color: var(--forest);
+}
+.paper-indigo {
+    background-color: var(--indigo);
+    color: var(--paper);
+}
+/*.project-container {
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 24px;
+    margin: 40px auto;
+    width: 75%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;     
+    justify-content: center;
+}
+.project-container > div {
+    flex-direction: column;
+    align-items: center;  
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.project-container-img {
+    height: 315px;
+}*/
 
 .project-container {
     border: 1px solid #444;
@@ -128,11 +184,61 @@ body {
     margin: 40px auto;
     width: 75%;
     box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+}
+
+.project-container > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.project-container > div > h2 {
+    margin-top: 0;
 }
 
 .project-container-img {
-    height: 50%;
+    height: 315px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
+
+.leadership-container {
+    display: flex;
+    gap: 20px; /* Space between elements */
+    /* align-items: center; /* Align vertically */
+}
+.leadership-container > div {
+    flex: 1;
+}
+
+section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+button {
+    font-family: var(--body);
+    font-size: var(--step-0);
+    background: var(--mustard);
+    color: var(--ink);
+    padding: 0.35rem 1.1rem;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    color: var(--ink);
+    background: var(--paper);
+}
+
+
 
 </style>
  <body>
@@ -158,7 +264,7 @@ body {
         </nav>
     </header>
 
-    <section class="paper-dim">
+    <section id="about" class="paper-dim">
     <div class="hero__grid">
     
         <figure class="hero__portrait">
@@ -187,7 +293,7 @@ body {
 
 
     <!--- Work --->
-    <section class="paper-blue">
+    <section id="work" class="paper-blue">
         <h1>Work</h1>
         <p>Here are some of the research projects and internships that I have worked on. </p>
         <div class="project-container">
@@ -205,8 +311,9 @@ body {
             experience working with the Android SDK and publishing an
             application to the Meta Quest store.
             </p>
-            </div>
             <button>Meta Quest</button> <button>XR @ CISESS</button>
+            </div>
+            
         </div>
         <div class="project-container">
             <img class="project-container-img" src="perceptions.png"></img>
@@ -230,7 +337,7 @@ body {
     </section>
 
     <!--- Achievements --->
-    <section class="paper-blue">
+    <section id="achievements" class="paper-white">
         <h1>Achievements</h1>
         <p>Here are some of the achievements and awards that I have received from various hackathons. </p>
         <div class="project-container">
@@ -243,8 +350,9 @@ body {
             This project specifically utilized Raven Framework, YOLOv7, OpenCV, to create a simple yet effective UI design. 
             In addition there is audio panning system which alerts the driver when they are fixating on a specific object for too long.
             </p>
-            </div>
             <button>Devpost</button> <button>Github</button>
+            </div>
+            
         </div>
         <div class="project-container">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/K60P4-iIJ2k?si=Mknvk3tzRG6DuM-M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -264,8 +372,9 @@ body {
             and Gemini.
 
             </p>
-            </div>
             <button>Devpost</button> <button>Github</button>
+            </div>
+            
         </div>
         <div class="project-container">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/eBeCEY2OcjE?si=qIZ3yvo8jMmywNly" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -280,8 +389,9 @@ body {
             even a couple meters away, while letting you see your hands
             and nearby objects in front of you. 
             </p>
-            </div>
             <button>Devpost</button> <button>Github</button>
+            </div>
+            
         </div>
         <div class="project-container">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/_kGXXWNBvGA?si=fK8ux2_04pae46Ty" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -293,8 +403,9 @@ body {
             Set with the premise of a curious teen trapped within an NASA-inspired arcade machine that has a deeper meaning and has to collect enough data to claw his way back to reality.
 
             </p>
-            </div>
             <button>Devpost</button> <button>Github</button>
+            </div>
+            
         </div>
         <div class="project-container">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/UZTKXV6FHAw?si=vUIuOdFv3SD1Nuw7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -306,29 +417,112 @@ body {
              Designed to make karaoke accessible anytime, anywhere, the application allows users to sing along to their favorite songs in an immersive augmented reality experience, laying the groundwork for a new form of XR-powered social music.
              My contribution was the karaoke text that displays data directly from imported subtitle file formats.
             </p>
-            </div>
             <button>Devpost</button> <button>Github</button>
+            </div>
+            
         </div>
 
         
     </section>
 
     <!--- Graphics Lab --->
-    <section class="paper-blue">
+    <section id="graphics" class="paper-dark">
         <h1>Graphics Lab</h1>
         <p>Here are some of the computer graphics projects and renderings that I have worked on.</p>
+    
+        <div class="project-container">
+            <div>
+                <!--<img class="project-container-img"src="assets/bubbles_render.png"> -->
+                <img class="project-container-img" src="assets/render.png">
+            </div>
+            <div>
+            <h2>Spectral Path Tracing in Shadertoy</h2>
+            <h3>CMSC740 Final Project</h3>
+            <p>
+             We developed a spectral path tracer in GLSL using Shadertoy to explore wavelength-dependent light behavior and simulate complex optical phenomena. 
+             The renderer implements spectral upsampling to represent material colors as wavelength-dependent curves, dispersion to model wavelength-dependent refraction, 
+             and thin-film interference to reproduce the iridescent colors of soap bubbles. A key component of the project involved deriving and implementing equations for phase differences and the resulting intensity of interfering light waves. These techniques were integrated into a GPU-based path tracing engine to produce spectral rendering effects directly in the browser.
+            </p>
+            <button>Shadertoy</button> <button>Paper</button>
+            </div>
+            
+        </div>
+
+        <div class="project-container">
+            <div>
+                <img class="project-container-img" src="assets/nurbs.png">
+            </div>
+            <div>
+            <h2>Virtual Avatar</h2>
+            <h3>Personal Project</h3>
+            <p>
+                A computer vision application using pose tracking to edit virtual avatar facial position data.
+                This project utilized libraries such as Python, Mediapipe, OpenGL, and GLSL for pose tracking and rendering.
+            </p>
+            </div>
+        </div>
+
+        <div class="project-container">
+            <div>
+                <img class="project-container-img" src="assets/nurbs.png">
+            </div>
+            <div>
+            <h2>Surfel Algorithm For Realtime Raytracing of Freeform Surfaces</h2>
+            <h3>Montgomery County Gold Medalist in ACT-SO</h3>
+            <p>
+                This study implements a surfel based algorithm for real time rendering that does
+                Newton iteration for ray tracing intersections on freeform surfaces. 
+                The project's stack utilized OpenXR, OpenGL, GLSL, Google Sheets API, Pandas, and Matplotlib.
+            </p>
+            <button>Paper</button>
+            </div>
+            
+        </div>
     </section>
 
+    <section id="leadership">
+        <h1>Leadership</h1>
+        <p>Here are some of the leadership positions 
+            that I have held in various organizations 
+            that demonstrate my interpersonal skills.</p>
+        <div class="leadership-container">
+            <div>
+                <h2>IMDM 327</h2>
+                <h3>Teaching Assistant</h3>
+                <h4>Fall 2026 - Present</h4>
+                <p>I help guide students through Unity Project development and integrating virtual reality, as well as navigating Github.</p>
+            </div>
+            <div>
+                <h2>XR Club</h2>
+                <h3>Board Member</h3>
+                <h4>Fall 2024 - Present</h4>
+                <p>I serve on the XR Club Board, making executive decisions, coordinating events such as workshops, and assisting members with using VR headsets.</p>
+            </div>
+            <div>
+                <h2>Resident Life</h2>
+                <h3>Resident Assistant</h3>
+                <h4>Fall 2024 - Spring 2025</h4>
+                <p>I facilitated community building, conflict resolution, and resident programming for 38 students.
+                </p>
+            </div>
+            <div>
+                <h2>SIGGRAPH</h2>
+                <h3>Student Volunteer</h3>
+                <h4>Summer 2024 - Summer 2025</h4>
+                <p>I was the first point of contact for attendees at the conference, and monitored paper talks and panels, tracking attendance numbers and ensuring fire complaince.
+                </p>
+            </div>
+        </div>
+    </section>
 
-    <h1>Contact</h1>
-    <p>You can reach me at samuelwiggins.f@gmail.com</p>
+    <section id="contact" class="paper-indigo">
+        <h1>Contact</h1>
+        <p>You can reach me at samuelwiggins.f@gmail.com</p>
     </section>
 	
-
-    <img src="aguconference.png">
 	<footer class="footer">
         <div class="wrap footer__inner">
-            <p>© 2026 Samuel Wiggins</p>
+            <p>© 2026 Samuel Wiggins All rights reserved.</p>
             <a href="#top">Back to top</a>
         </div>
     </footer>
